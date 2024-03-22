@@ -7,8 +7,8 @@ require("dotenv").config();
 
 // Configure CORS more specifically
 const corsOptions = {
-  origin: "http://localhost:3000", // Replace with your client-side URL
-  methods: ["GET", "POST"],
+  origin: "*",
+  credentials: true,
 };
 app.use(cors(corsOptions));
 
@@ -39,10 +39,7 @@ const Room = mongoose.model("Room", RoomSchema);
 const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:3000", // Replace with your client-side URL
-    methods: ["GET", "POST"],
-  },
+  cors: corsOptions,
 });
 
 io.on("connection", (socket) => {
