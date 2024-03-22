@@ -7,8 +7,8 @@ require("dotenv").config();
 
 // Configure CORS more specifically
 const corsOptions = {
-  origin: "*",
-  credentials: true,
+  origin: "https://tic-tac-toe-frontend-arzb.onrender.com", // Replace with your client-side URL
+  methods: ["GET", "POST"],
 };
 app.use(cors(corsOptions));
 
